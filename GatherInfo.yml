@@ -1,0 +1,33 @@
+---
+- name: Gather Info from Cisco Routers
+  hosts: routers
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Show version
+      ios_command:
+        commands: show version
+      register: version_output
+
+    - name: Display version
+      debug:
+        var: version_output.stdout_lines
+
+    - name: Show interfaces
+      ios_command:
+        commands: show ip interface brief
+      register: int_output
+
+    - name: Display interfaces
+      debug:
+        var: int_output.stdout_lines
+
+    - name: Show routing table
+      ios_command:
+        commands: show ip route
+      register: route_output
+
+    - name: Display routes
+      debug:
+        var: route_output.stdout_lines
