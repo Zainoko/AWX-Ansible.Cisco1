@@ -1,4 +1,4 @@
 ---
 collections:
   - name: cisco.ios
-    version: "2.10.0"   # or "latest"
+    version: "11.0.0"   # or "latest"
