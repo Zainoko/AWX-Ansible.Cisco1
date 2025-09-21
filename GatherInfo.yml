@@ -1,6 +1,6 @@
 ---
 - name: Test Cisco Router with AWX
-  hosts: Cisco Routers
+  hosts: Routers
   gather_facts: no
   connection: network_cli   # important for Cisco IOS
 
