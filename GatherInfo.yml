@@ -1,6 +1,6 @@
 ---
 - name: Test Cisco Router with AWX
-  hosts: cisco_routers
+  hosts: Routers
   gather_facts: no
   connection: network_cli
 
