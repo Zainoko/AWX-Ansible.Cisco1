@@ -1,33 +1,18 @@
 ---
-- name: Gather Info from Cisco Routers
+- name: Test Cisco Router with AWX
   hosts: Cisco Routers
   gather_facts: no
-  connection: network_cli
+  connection: network_cli   # important for Cisco IOS
 
   tasks:
-    - name: Show version
-      ios_command:
-        commands: show version
-      register: version_output
 
-    - name: Display version
+    - name: Gather IOS facts
+      cisco.ios.ios_facts:
+
+    - name: Show hostname
       debug:
-        var: version_output.stdout_lines
+        msg: "Router hostname is {{ ansible_net_hostname }}"
 
-    - name: Show interfaces
-      ios_command:
-        commands: show ip interface brief
-      register: int_output
-
-    - name: Display interfaces
+    - name: Show IOS version
       debug:
-        var: int_output.stdout_lines
-
-    - name: Show routing table
-      ios_command:
-        commands: show ip route
-      register: route_output
-
-    - name: Display routes
-      debug:
-        var: route_output.stdout_lines
+        msg: "Router IOS version is {{ ansible_net_version }}"
