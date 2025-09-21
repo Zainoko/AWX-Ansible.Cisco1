@@ -1,4 +1,17 @@
 ---
-collections:
-  - name: cisco.ios
-    version: 2.10.0   # or "latest"
+- name: Test Cisco Router with AWX
+  hosts: cisco_routers
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Gather IOS facts
+      cisco.ios.ios_facts:
+
+    - name: Show hostname
+      debug:
+        msg: "Router hostname is {{ ansible_net_hostname }}"
+
+    - name: Show IOS version
+      debug:
+        msg: "Router IOS version is {{ ansible_net_version }}"
