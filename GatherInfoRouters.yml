@@ -1,6 +1,6 @@
 ---
 - name: Gather Info from Cisco Routers
-  hosts: routers
+  hosts: Routers
   gather_facts: no
   connection: network_cli
 
