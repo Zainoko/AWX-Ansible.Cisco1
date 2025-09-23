@@ -35,10 +35,10 @@
       debug:
         var: int_output.stdout_lines
 
-    - name: Show routing table
+    - name: Get IP routes
       ios_command:
         commands:
-          - show ip route
+          - show ip route | exclude "Codes:"
       register: route_output
 
     - name: Display routes
