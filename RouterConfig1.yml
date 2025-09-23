@@ -1,0 +1,24 @@
+---
+- name: Configure Cisco Routers
+  hosts: Routers
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Configure hostname
+      ios_config:
+        lines:
+          - hostname ROUTER-AWX
+
+    - name: Configure Loopback interface
+      ios_config:
+        lines:
+          - interface Loopback0
+          - ip address 10.10.10.1 255.255.255.255
+
+    - name: Configure MOTD banner
+      ios_config:
+        lines:
+          - banner motd ^
+          - Authorized access only!
+          - ^
