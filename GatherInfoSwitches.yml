@@ -1,6 +1,6 @@
 ---
 - name: Gather Info from Cisco Switches
-  hosts: switches
+  hosts: Switches
   gather_facts: no
   connection: network_cli
 
