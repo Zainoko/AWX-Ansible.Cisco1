@@ -1,0 +1,32 @@
+---
+- name: Gather Info from Cisco Switches
+  hosts: switches
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+
+    - name: Gather switch information
+      ios_command:
+        commands:
+          - show run | include hostname
+          - show vlan brief
+          - show ip interface brief
+          - show spanning-tree
+      register: switch_output
+
+    - name: Display hostname
+      debug:
+        msg: "Hostname: {{ switch_output.stdout_lines[0][0].split()[1] }}"
+
+    - name: Display VLANs
+      debug:
+        msg: "{{ switch_output.stdout_lines[1] }}"
+
+    - name: Display Interfaces
+      debug:
+        msg: "{{ switch_output.stdout_lines[2] }}"
+
+    - name: Display Spanning Tree
+      debug:
+        msg: "{{ switch_output.stdout_lines[3] }}"
