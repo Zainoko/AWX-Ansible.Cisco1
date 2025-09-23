@@ -38,9 +38,13 @@
     - name: Get IP routes
       ios_command:
         commands:
-          - show ip route | exclude "Codes:"
+          - show ip route
       register: route_output
+
+    - name: Filter routes only
+      set_fact:
+        routes: "{{ route_output.stdout_lines[0] | select('match','^[A-Z*]') | list }}"
 
     - name: Display routes
       debug:
-        var: route_output.stdout_lines
+        var: routes
