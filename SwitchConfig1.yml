@@ -28,11 +28,12 @@
         lines:
           - interface GigabitEthernet0/2
           - switchport mode access
-          - switchport access {{ access_port }}
+          - switchport access vlan {{ access_port }}
 
     - name: Configure MOTD banner
       ios_config:
         lines:
-          - banner motd ^
+          - banner motd @
           - Switch access restricted!
-          - ^
+          - @
+
