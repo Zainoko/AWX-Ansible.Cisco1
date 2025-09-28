@@ -34,8 +34,10 @@
     - name: Configure MOTD banner
       ios_config:
         lines:
-          - banner motd |
+          - banner motd ^ 
             Switch access restricted!
-            Authorized personnel only!
+            Unauthorized access prohibited!
+            ^
+
 
 
