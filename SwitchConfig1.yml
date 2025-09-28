@@ -13,7 +13,7 @@
     - name: Configure hostname
       ios_config:
         lines:
-          - hostname SWITCH-ANSIBLE
+          - hostname {{ hostname }}
 
     - name: Configure VLANs
       ios_config:
@@ -23,19 +23,12 @@
           - vlan 20
           - name STAFF
 
-    - name: Assign access port to VLAN 10
+    - name: Assign access port to VLAN 10/20
       ios_config:
         lines:
           - interface GigabitEthernet0/2
           - switchport mode access
-          - switchport access vlan 10
-
-    - name: Configure Switch Virtual Interface (Loopback simulation)
-      ios_config:
-        lines:
-          - interface loopback0
-          - ip address 192.168.1.10 255.255.255.0
-          - no shutdown
+          - switchport access {{ access_port }}
 
     - name: Configure MOTD banner
       ios_config:
