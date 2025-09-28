@@ -10,15 +10,14 @@
         lines:
           - hostname ROUTER-AWX
 
-    - name: Configure Loopback interface
+    - name: Configure Loopback0 interface
       ios_config:
+        parents: interface Loopback0
         lines:
-          - interface Loopback0
           - ip address 20.20.20.1 255.255.255.0
+          - no shutdown
 
     - name: Configure MOTD banner
       ios_config:
         lines:
-          - banner motd ^
-          - Authorized access only!
-          - ^
+          - banner motd ^Authorized access only!^
