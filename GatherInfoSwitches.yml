@@ -4,8 +4,12 @@
   gather_facts: no
   connection: network_cli
 
-  tasks:
+  vars:
+    ansible_network_os: cisco.ios.ios
+    ansible_become: yes
+    ansible_become_method: enable
 
+  tasks:
     - name: Gather switch information
       ios_command:
         commands:
