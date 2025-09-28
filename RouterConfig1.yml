@@ -1,6 +1,6 @@
 ---
 - name: Configure Multiple Cisco Routers
-  hosts: all
+  hosts: Routers
   gather_facts: no
   connection: network_cli
 
