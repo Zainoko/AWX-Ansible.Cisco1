@@ -23,12 +23,12 @@
           - vlan 20
           - name STAFF
 
-    - name: Assign access port to VLAN 10/20
+    - name: Assign access port to VLAN 10
       ios_config:
         lines:
           - interface GigabitEthernet0/2
           - switchport mode access
-          - switchport access vlan {{ access_port }}
+          - switchport access vlan 10
 
     - name: Configure MOTD banner
       ios_config:
