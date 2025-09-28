@@ -2,9 +2,9 @@
 - name: Gather Info from Cisco Routers
   hosts: Routers
   gather_facts: no
-  connection: network_cli
 
   vars:
+    connection: network_cli
     ansible_network_os: cisco.ios.ios
     ansible_become: yes
     ansible_become_method: enable
