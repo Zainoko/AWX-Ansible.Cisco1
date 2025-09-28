@@ -23,7 +23,7 @@
           - vlan 20
           - name STAFF
 
-    - name: Assign access port to VLAN 10
+    - name: Assign access port to VLAN 10/20
       ios_config:
         parents:
           - interface GigabitEthernet0/2
