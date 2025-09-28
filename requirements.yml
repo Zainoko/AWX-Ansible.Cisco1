@@ -1,7 +1,7 @@
 collections:
   - name: cisco.ios
-    version: "11.0.0"
+    version: "5.0.0"
   - name: ansible.netcommon
-    version: "1.5.0"
+    version: "2.5.1"
   - name: ansible.utils
-    version: "6.0.0"
+    version: "2.0.0"
