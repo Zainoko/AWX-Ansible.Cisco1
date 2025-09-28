@@ -4,10 +4,10 @@
   gather_facts: no
   connection: network_cli
 
-    vars:
-    ansible_network_os: cisco.ios
-    ansible_become: yes
-    ansible_become_method: enable
+  vars:
+  ansible_network_os: cisco.ios
+  ansible_become: yes
+  ansible_become_method: enable
 
   tasks:
     - name: Show hostname
