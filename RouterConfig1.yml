@@ -25,4 +25,7 @@
     - name: Configure MOTD banner
       ios_config:
         lines:
-          - banner motd ^Authorized access only!^
+          - banner motd ^ 
+            Router access restricted!
+            Unauthorized access prohibited!
+            ^
