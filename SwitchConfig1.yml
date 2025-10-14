@@ -26,7 +26,7 @@
     - name: Assign access port to VLAN 10/20
       ios_config:
         parents:
-          - interface range GigabitEthernet0/2-3,GigabitEthernet1/0-3,GigabitEthernet2/0-3
+          - interface range FastEthernet 0/5-24
         lines:
           - switchport mode access
           - switchport access vlan {{ access_port }}
