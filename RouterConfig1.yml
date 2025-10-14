@@ -15,6 +15,20 @@
         lines:
           - hostname {{ hostname }}
 
+    - name: Configure DHCP pool USER-CLIENT
+      ios_config:
+        lines:
+          - network 172.0.0.0 255.255.255.0
+          - default-router 172.0.0.1
+          - dns-server 192.168.1.13
+          - domain-name user.local
+        parents: ip dhcp pool USER-CLIENT
+
+    - name: Exclude addresses from 172.0.0.1 to 172.0.0.5
+      ios_config:
+        lines:
+          - ip dhcp excluded-address 172.0.0.1 172.0.0.5
+
     - name: Configure Loopback interface
       ios_config:
         parents: interface Loopback0
