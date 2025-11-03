@@ -15,14 +15,6 @@
         lines:
           - hostname {{ hostname }}
 
-    - name: Configure VLANs
-      ios_config:
-        lines:
-          - vlan 10
-          - name SERVER
-          - vlan 20
-          - name CLIENT
-
     - name: Assign access port to VLAN 10/20
       ios_config:
         parents:
