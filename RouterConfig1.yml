@@ -20,7 +20,7 @@
         lines:
           - network 172.0.0.0 255.255.255.0
           - default-router 172.0.0.1
-          - dns-server 192.168.1.13
+          - dns-server 192.168.1.4
           - domain-name user.local
         parents: ip dhcp pool USER-CLIENT
 
