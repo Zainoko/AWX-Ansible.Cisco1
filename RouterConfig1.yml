@@ -29,13 +29,6 @@
         lines:
           - ip dhcp excluded-address 172.0.0.1 172.0.0.5
 
-    - name: Configure Loopback interface
-      ios_config:
-        parents: interface Loopback0
-        lines:
-          - ip address {{ loopback_ip }} 255.255.255.0
-          - no shutdown
-
     - name: Configure MOTD banner
       ios_config:
         lines:
