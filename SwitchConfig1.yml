@@ -19,14 +19,14 @@
       ios_config:
         lines:
           - vlan 10
-          - name ADMIN
+          - name SERVER
           - vlan 20
-          - name STAFF
+          - name CLIENT
 
     - name: Assign access port to VLAN 10/20
       ios_config:
         parents:
-          - interface range FastEthernet 0/5-24
+          - interface range GigabitEthernet 1/0/1-24
         lines:
           - switchport mode access
           - switchport access vlan {{ access_port }}
